@@ -446,6 +446,12 @@ class OnePageViewModel {
       self.loadApp('importer');
       self.getActiveAppViewModel(vm => {
         vm.createWizard.source.path(path);
+        vm.currentStep(2);
+        vm.createWizard.source.interpreter('hive');
+        vm.createWizard.destination.name('default.xyz1');
+        window.setTimeout(() => {
+          vm.createWizard.indexFile();
+        }, 1000);
       });
     };
 
